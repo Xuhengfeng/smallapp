@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+      "van-button": "../../node_modules/vant-weapp/dist/button/index"
+    }
+  }
