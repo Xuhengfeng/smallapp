@@ -6,6 +6,7 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    show: false,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -42,6 +43,12 @@ Page({
         }
       })
     }
+  },
+  onOpen() {
+    this.setData({show: true});
+  },
+  onClose() {
+    this.setData({ show: false });
   },
   getUserInfo: function(e) {
     console.log(e)
