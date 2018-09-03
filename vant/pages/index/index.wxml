@@ -2,7 +2,6 @@
 
   <van-button type="primary" bindtap="onOpen">按钮</van-button>
   <van-popup show="{{ show }}"  position="bottom" bindtap="onClose">内容</van-popup>
-
   <view class="footer">
     <van-tabbar active="{{ active }}" bind:change="onChange">
       <van-tabbar-item icon="shop">标签</van-tabbar-item>
@@ -11,4 +10,6 @@
       <van-tabbar-item icon="gold-coin" info="20">标签</van-tabbar-item>
     </van-tabbar>
   </view>
+
+  <i-button type="primary" bind:click="handleClick">这是一个按钮</i-button>
 

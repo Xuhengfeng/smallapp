@@ -3,6 +3,7 @@
     "van-button": "/vant-weapp/dist/button/index",
     "van-popup": "/vant-weapp/dist/popup/index",
     "van-tabbar": "/vant-weapp/dist/tabbar/index",
-    "van-tabbar-item": "/vant-weapp/dist/tabbar-item/index"
+    "van-tabbar-item": "/vant-weapp/dist/tabbar-item/index",
+    "i-button": "/iview-weapp/dist/button/index"
   }
 }
