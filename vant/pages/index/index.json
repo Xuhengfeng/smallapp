@@ -4,6 +4,8 @@
     "van-popup": "/vant-weapp/dist/popup/index",
     "van-tabbar": "/vant-weapp/dist/tabbar/index",
     "van-tabbar-item": "/vant-weapp/dist/tabbar-item/index",
-    "i-button": "/iview-weapp/dist/button/index"
+    "i-button": "/iview-weapp/dist/button/index",
+    "i-index": "/iview-weapp/dist/index/index",
+    "i-index-item": "/iview-weapp/dist/index-item/index"
   }
 }

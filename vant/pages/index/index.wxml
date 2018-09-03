@@ -1,6 +1,6 @@
 <!--index.wxml-->
 
-  <van-button type="primary" bindtap="onOpen">按钮</van-button>
+  <!-- <van-button type="primary" bindtap="onOpen">按钮</van-button>
   <van-popup show="{{ show }}"  position="bottom" bindtap="onClose">内容</van-popup>
   <view class="footer">
     <van-tabbar active="{{ active }}" bind:change="onChange">
@@ -11,5 +11,25 @@
     </van-tabbar>
   </view>
 
-  <i-button type="primary" bind:click="handleClick">这是一个按钮</i-button>
+  <i-button type="primary" bind:click="handleClick">这是一个按钮</i-button> -->
+
+  <view class="i-index-demo">
+      <i-index height="100%" bind:change="onChange">
+          <i-index-item 
+              wx:for="{{ cities }}" 
+              wx:for-index="index" 
+              wx:key="{{index}}" 
+              wx:for-item="item" name="{{item.key}}">
+              <view 
+                  class="i-index-demo-item" 
+                  wx:for="{{item.list}}" 
+                  wx:for-index="in" 
+                  wx:key="{{in}}" 
+                  wx:for-item="it">
+                  {{it.name}}
+              </view>
+          </i-index-item>
+      </i-index>
+  </view>
+
 

@@ -1,14 +1,8 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
+import { cities } from './city';
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    show: false,
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    cities : [],
+    show: false
   },
   //事件处理函数
   bindViewTap: function() {
@@ -16,33 +10,8 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+  onLoad() {
+    
   },
   onOpen() {
     this.setData({show: true});
@@ -50,12 +19,29 @@ Page({
   onClose() {
     this.setData({ show: false });
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+  onChange(event){
+    console.log(event.detail,'click right menu callback data')
+  },
+  onReady(){
+      let storeCity = new Array(26);
+      const words = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+      words.forEach((item,index)=>{
+          storeCity[index] = {
+              key : item,
+              list : []
+          }
+      })
+      cities.forEach((item)=>{
+          let firstName = item.pinyin.substring(0,1);
+          let index = words.indexOf( firstName );
+          storeCity[index].list.push({
+              name : item.name,
+              key : firstName
+          });
+      })
+      this.data.cities = storeCity;
+      this.setData({
+          cities : this.data.cities
+      })
   }
 })
